@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "backend-interview"
+name = "debit-scheduler-takehome"
 version = "0.1.0"
 description = ""
 authors = ["Dante Monaldo <dmonaldo@earnup.com>"]
