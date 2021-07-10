@@ -8,7 +8,7 @@ There is a lot of flexibility to this exercise... and it’s intentional. We alw
 This project is designed to take **45 minutes**, no more than 1 hour, but we respect your right to work on it as needed on your own time. Fork this repo to get started. Please send the recruiter a link to your solution within a week.
 
 
-## Deliverable:
+## Deliverable
 
 Build an endpoint called `/get_next_debit` that accepts information about a loan and returns the *next* debit amount and debit date for that loan.
 
@@ -21,7 +21,7 @@ For example, a loan with a $750 monthly payment that debits a customer bi-weekly
 - Debit $375 on May 7th, 2021
 - Debit $375 on May 21st, 2021
 
-Keep in mind, some months have more debit dates than other months. The sum of debit amounts for a given month should equal the `monthly_payment_amount`.
+Keep in mind, some months have more debit dates than other months. The sum of debit amounts for a given month should equal the `monthly_payment_amount`. A debit cannot occur on the same day as a payment. Debits and payments can only occur on business days (Monday - Friday).
 
 Explore `/tests` for more examples.
 
@@ -32,8 +32,7 @@ Explore `/tests` for more examples.
         "monthly_payment_amount": 750,
         "payment_due_day": 28,
         "schedule_type": "biweekly",
-        "debit_start_date": "05/07/2021",
-        "debit_frequency": "friday"
+        "debit_start_date": "2021-05-07"
     }
 }
 ```
@@ -43,7 +42,7 @@ Explore `/tests` for more examples.
 {
     "debit": {
         "amount": 375,
-        "date": "05/21/21"
+        "date": "2021-05-21"
     }
 }
 ```
