@@ -8,7 +8,8 @@ SAMPLE_REQUEST_1 = {
         'monthly_payment_amount': 750,
         'payment_due_day': 28,
         'schedule_type': 'biweekly',
-        'debit_start_date': '2021-05-07'
+        'debit_start_date': '2021-05-07',
+        'debit_day_of_week': 'friday'
     }
 }
 
@@ -40,7 +41,8 @@ SAMPLE_REQUEST_2 = {
         'monthly_payment_amount': 990,
         'payment_due_day': 1,
         'schedule_type': 'biweekly',
-        'debit_start_date': '2021-05-03'
+        'debit_start_date': '2021-05-03',
+        'debit_day_of_week': 'monday'
     }
 }
 
