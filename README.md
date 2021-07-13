@@ -21,7 +21,7 @@ For example, a loan with a $750 monthly payment that debits a customer bi-weekly
 - Debit $375 on May 7th, 2021
 - Debit $375 on May 21st, 2021
 
-Keep in mind, some months have more debit dates than other months. The sum of debit amounts for a given month should equal the `monthly_payment_amount`. A debit cannot occur on the same day as a payment. Debits and payments can only occur on business days (Monday - Friday).
+Keep in mind, some months have more debit dates than other months. The sum of debit amounts for a given month should equal the `monthly_payment_amount`. A debit cannot be used for a payment on the same day, it would need to be used for the next payment. Debits and payments can only occur on business days (Monday - Friday).
 
 Explore `/tests` for more examples.
 
