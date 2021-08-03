@@ -13,7 +13,7 @@ This project is designed to take **45 minutes**, no more than 1 hour, but we res
 Build an endpoint called `/get_next_debit` that accepts information about a loan and returns the *next* debit amount and debit date for that loan.
 
 There are 3 primitives to understand:
-- **Loan** - this could be a mortgage, auto loan or some other financial product that requires a reqularly scheduled payment.
+- **Loan** - this could be a mortgage, auto loan or some other financial product that requires a regularly scheduled payment.
 - **Payment** - a date and amount that gets paid towards a loan on the `payment_due_day` of the month.
 - **Debit** - a date and amount to retrieve funds from a customer. Multiple debits add up to a monthly payment.
 
