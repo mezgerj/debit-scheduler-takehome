@@ -5,7 +5,7 @@ Welcome! If you're reading this, odds are that you're interviewing for a backend
 
 There is a lot of flexibility to this exercise... and it’s intentional. We always appreciate clean, well-documented code, but we’re also looking to see how you approach problems and make tradeoffs. We’re just as interested to discuss your design as we are to see a working app. The boilerplate code in this project should serve as a foundation; feel free to make modifications, write helper functions, extend tests, etc.
 
-This project is designed to take **45 minutes**, no more than 1 hour, but we respect your right to work on it as needed on your own time. Fork this repo to get started. Please send the recruiter a link to your solution within a week.
+This project is designed to take **45 minutes**, no more than 1 hour, but we respect your right to work on it as needed on your own time. Clone this repo to get started. Please send the recruiter a link to your solution within a week.
 
 
 ## Deliverable
