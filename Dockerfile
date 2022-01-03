@@ -12,6 +12,8 @@ RUN poetry config virtualenvs.create false
 RUN poetry install --no-root
 
 COPY app.py ./app.py
+COPY debit_service.py ./debit_service.py
+COPY exceptions.py ./exceptions.py
 COPY tests ./tests
 COPY run.sh ./run.sh
 

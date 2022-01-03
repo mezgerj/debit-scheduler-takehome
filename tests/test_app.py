@@ -2,7 +2,6 @@ import pytest
 from werkzeug.test import Client
 from freezegun import freeze_time
 
-
 SAMPLE_REQUEST_1 = {
     'loan': {
         'monthly_payment_amount': 750,
@@ -46,7 +45,6 @@ SAMPLE_REQUEST_2 = {
     }
 }
 
-
 SAMPLE_RESPONSE_2 = [
     {
         'today': '2021-05-02',
@@ -67,6 +65,34 @@ SAMPLE_RESPONSE_2 = [
         'today': '2021-06-05',
         'amount': 495,
         'date': '2021-06-14'
+    }
+]
+
+SAMPLE_REQUEST_3_INVALID_DAY = {
+    'loan': {
+        'monthly_payment_amount': 990,
+        'payment_due_day': 1,
+        'schedule_type': 'biweekly',
+        'debit_start_date': '2021-05-03',
+        'debit_day_of_week': 'sunday'
+    }
+}
+
+SAMPLE_REQUEST_4_FED_HOLIDAY = {
+    'loan': {
+        'monthly_payment_amount': 750,
+        'payment_due_day': 1,
+        'schedule_type': 'biweekly',
+        'debit_start_date': '2022-01-03',
+        'debit_day_of_week': 'monday'
+    }
+}
+
+SAMPLE_RESPONSE_4_FED_HOLIDAY = [
+    {
+        'today': '2022-01-16',
+        'amount': 250,
+        'date': '2022-01-18'
     }
 ]
 
@@ -96,6 +122,25 @@ def test_case_2(app_client, expected):
 
     with freeze_time(expected['today']):
         response = app_client.post('/get_next_debit', json=request)
+        assert response.status_code == 200
+        assert response.json['debit']['amount'] == expected['amount']
+        assert response.json['debit']['date'] == expected['date']
+
+
+def test_case_3_invalid_request(app_client):
+    request = SAMPLE_REQUEST_3_INVALID_DAY
+
+    response = app_client.post('/get_next_debit', json=request)
+    assert response.status_code == 400
+    assert response.json['message'] == 'Invalid debit day provided, valid days are Mon-Fri'
+
+
+@pytest.mark.parametrize('expected', SAMPLE_RESPONSE_4_FED_HOLIDAY)
+def test_case_fed_holiday(app_client, expected):
+    request = SAMPLE_REQUEST_4_FED_HOLIDAY
+
+    response = app_client.post('/get_next_debit', json=request)
+    with freeze_time(expected['today']):
         assert response.status_code == 200
         assert response.json['debit']['amount'] == expected['amount']
         assert response.json['debit']['date'] == expected['date']
